@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список статей</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Занимаем весь viewport */
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1; /* Занимаем доступное пространство */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+        p {
+            text-align: center;
+            font-style: italic;
+            color: #777;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #ddd;
+            margin-top: 20px;
+        }
+        .footer img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+        .footer a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #3498db;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Список шин</h1>
+
+    <table th:if="${not #lists.isEmpty(tireWarehouseDTOList)}">
+        <thead>
+        <tr>
+            <th>Склад</th>
+            <th>Модель</th>
+            <th>Доступно сейчас</th>
+            <th>Доступно всего</th>
+            <th>Дефицит всего</th>
+            <th>К всего</th>
+            <th>Излишек всего</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="article : ${tireWarehouseDTOList}">
+            <td th:text="${article.getWarehouseName()}"></td>
+            <td th:text="${article.getTireName()}"></td>
+            <td th:text="${article.getAvailableNow()}"></td>
+            <td th:text="${article.getAvailableTotal()}"></td>
+            <td th:text="${article.getDeficitTotal()}"></td>
+            <td th:text="${article.getProvidedTotal()}"></td>
+            <td th:text="${article.getSurplusTotal()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p th:if="${#lists.isEmpty(tireWarehouseDTOList)}">Нет доступных статей.</p>
+</div>
+
+<footer class="footer">
+    <img src="https://penza.kolex.ru/img/servisnye-uslugi/sezonnoe-hranenie/slider2.png" alt="Шины" />
+    <a href="/home">Главная</a>
+    <a href="/tire">Шины</a>
+</footer>
+</body>
+</html>

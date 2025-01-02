@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Купить шины</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+         .forms-container {
+             display: flex;          /* Располагаем формы в строку */
+             flex-wrap: wrap;      /* Позволяем формам переноситься на новую строку при необходимости */
+             gap: 20px;             /* Расстояние между формами */
+             align-items: flex-start; /* Выравниваем формы по вертикали по началу */
+             justify-content: center;/* Располагаем по центру */
+             margin-bottom: 20px;
+         }
+        .forms-container form {
+            display: flex; /* Размещаем input'ы в строку */
+            gap: 5px;     /* Расстояние между input'ами в форме */
+        }
+        .forms-container form input[type="text"] {
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 200px;  /* Минимальная ширина текстового поля */
+        }
+        .forms-container form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 18px; /* Увеличили отступ */
+            font-size: 16px;   /* Увеличили размер шрифта */
+            cursor: pointer;
+        }
+        .forms-container form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Выбор шин</h1>
+<img src="https://penza.kolex.ru/img/servisnye-uslugi/sezonnoe-hranenie/slider2.png" alt="Картинка колёс">
+
+<div class="forms-container">
+    <!-- Форма для отправки артикула -->
+    <form action="/submit-article" method="POST">
+        <input type="text" name="article" placeholder="Артикул" required>
+        <input type="submit" value="Отправить артикул">
+    </form>
+
+    <!-- Форма для отправки наименования -->
+    <form action="/submit-name" method="POST">
+        <input type="text" name="name" placeholder="Наименование" required>
+        <input type="submit" value="Отправить наименование">
+    </form>
+
+    <!-- Форма для отправки склада -->
+    <form action="/submit-warehouse" method="POST">
+        <input type="text" name="name" placeholder="Название склада" required>
+        <input type="submit" value="Отправить склад">
+    </form>
+</div>
+
+<a href="/tire" style="margin-right: 20px;">Перейти на страницу шин</a>
+<a href="/ware_house">Перейти на страницу складов</a>
+
+</body>
+</html>
