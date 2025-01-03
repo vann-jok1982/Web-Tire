@@ -23,7 +23,6 @@ public class Tire {
 
 
     private long id;
-    @NotEmpty(message = "Артикул не может быть пустым")
     private long article;
     private String name;
 

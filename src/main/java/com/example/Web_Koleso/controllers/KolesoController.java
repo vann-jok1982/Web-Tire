@@ -41,28 +41,9 @@ public class KolesoController {
         return "home";
     }
 
-//    @PostMapping("/submit-article")
-//    public String handleArticleRequest(@RequestParam("article") String article, Model model) {
-//        // Добавьте логику для обработки артикула
-//        model.addAttribute("article", article);
-//
-//        // Получите список шин и добавьте его в модель
-//        List<TireWarehouseDTO> tireWarehouseDTOList = tireService.findAllTiresWithQuantities(Long.valueOf(article));
-//        model.addAttribute("tireWarehouseDTOList", tireWarehouseDTOList);
-//
-//        return "article-submit"; // Убедитесь, что это название шаблона верно
-//    }
-
     @PostMapping("/submit-article")
-    public String handleArticleRequest(@Validated @RequestParam("article") @NotEmpty(message = "Артикул не может быть пустым") String article,
-                                       BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            // При наличии ошибок возвращаем на ту же страницу с ошибками
-            model.addAttribute("error", "Артикул не может быть пустым"); // Можно настроить более детально
-            return "article-submit"; // Название шаблона
-        }
-
-        // Логика обработки артикула
+    public String handleArticleRequest(@RequestParam("article") String article, Model model) {
+        // Добавьте логику для обработки артикула
         model.addAttribute("article", article);
 
         // Получите список шин и добавьте его в модель
@@ -71,6 +52,24 @@ public class KolesoController {
 
         return "article-submit"; // Убедитесь, что это название шаблона верно
     }
+
+//    @PostMapping("/submit-article")
+//    public String handleArticleRequest(@Validated @RequestParam("article") @NotEmpty(message = "Артикул не может быть пустым") String article,
+//                                       BindingResult bindingResult, Model model) {
+//        if (bindingResult.hasErrors()) {
+//            // При наличии ошибок возвращаем на ту же страницу с ошибками
+//            model.addAttribute("error", "Артикул не может быть пустым"); // Можно настроить более детально
+//            return "article-submit"; // Название шаблона
+//        }
+//
+//        model.addAttribute("article", article);
+//
+//        // Получите список шин и добавьте его в модель
+//        List<TireWarehouseDTO> tireWarehouseDTOList = tireService.findAllTiresWithQuantities(Long.valueOf(article));
+//        model.addAttribute("tireWarehouseDTOList", tireWarehouseDTOList);
+//
+//        return "article-submit"; // Убедитесь, что это название шаблона верно
+//    }
 
 
     @PostMapping("/submit-name")

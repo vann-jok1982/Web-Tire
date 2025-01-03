@@ -62,11 +62,7 @@
     <form action="/submit-article" method="POST">
         <input type="text" name="article" placeholder="Артикул" required>
         <input type="submit" value="Отправить артикул">
-        //* Отображает сообщение о ошибки из контролелра*/
-        <div th:if="${error}" th:text="${error}" style="color: red;"></div>
     </form>
-
-
 
     <!-- Форма для отправки наименования -->
     <form action="/submit-name" method="POST">
