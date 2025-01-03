@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Купить шины</title>
+    <title>Доступность шин</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,9 +60,13 @@
 <div class="forms-container">
     <!-- Форма для отправки артикула -->
     <form action="/submit-article" method="POST">
-        <input type="text" name="article" placeholder="Артикул" required>
-        <input type="submit" value="Отправить артикул">
-    </form>
+        <input type="text" name="article" placeholder="Артикул">
+<!--    <input type="text" name="article" placeholder="Артикул" required>-->
+        <input type="submit" value="Отправить артикул"> <br>
+        <div class="forms-container" th:if="${error}" th:text="${error}" style="color: red;"></div>
+        </form>
+
+
 
     <!-- Форма для отправки наименования -->
     <form action="/submit-name" method="POST">
