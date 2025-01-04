@@ -57,21 +57,5 @@ public ModelAndView upload(@RequestParam("file") MultipartFile file) throws IOEx
     modelAndView.addObject("message", "Проверка прошла успешно");
     return modelAndView;
 }
-//@PostMapping("/upload")
-//public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) throws IOException {
-//    if (file.isEmpty()) {
-//        return ResponseEntity.badRequest().body("Файл не должен быть пустым");
-//    }
-//
-//    // Парсинг файла
-//    kolesoParser.parseExcelFile(file.getInputStream());
-//
-//    // Перенаправление на другую страницу
-//    return ResponseEntity.status(HttpStatus.FOUND).location(URI.create("/success")).build();
-//}
-//    @GetMapping("/success")
-//    public String ShowSuccessPage() {
-//        return "success";
-//    }
 
 }
