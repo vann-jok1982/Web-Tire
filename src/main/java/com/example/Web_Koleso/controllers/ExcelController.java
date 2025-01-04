@@ -26,7 +26,7 @@ public class ExcelController {
             return ResponseEntity.badRequest().body("Файл не должен быть пустым");
         }
 //        // Парсинг файла (если необходимо, можно добавить логику для обработки разных типов файлов)
-          kolesoParser.parseExcelFile(file.getInputStream());
+        kolesoParser.parseExcelFile(file.getInputStream());
         System.out.println(available);
 
         return ResponseEntity.ok("Проверка прошла успешно");

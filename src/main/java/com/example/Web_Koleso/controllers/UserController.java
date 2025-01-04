@@ -24,7 +24,9 @@ public class UserController {
     }
 
     /**
-     * Метод ShowLoginPage возвращает на страницу авторизации для доступа к панели администратора
+     * Метод Autentification сверяет логин и пароль введенные в форму с тем что внесено в базу данных,
+     * в случае корректных данных метод контроллера направлеяет пользователя на "Панель Администратора"
+     *  если логи и пароль не совпадают то отображается сообщение для пользователя.
      */
 
     @PostMapping("/autorization")
@@ -33,7 +35,7 @@ public class UserController {
                         Model model) {
         if (userService.authenticate(username, password)) {
             // Успешная авторизация
-            return "redirect:/upload"; // Переход на страницу приветствия
+            return "redirect:/upload-tire-list"; // Переход на страницу приветствия
         } else {
             // Неправильный логин или пароль
             model.addAttribute("error", true);
@@ -41,9 +43,13 @@ public class UserController {
         }
     }
 
-    @GetMapping("/upload")
+    /**
+     * Метод ShowUploadPage возвращает на страницу загрузки файла в панели администратора
+     */
+
+    @GetMapping("/upload-tire-list")
     public String ShowUploadPage() {
-        return "upload";
+        return "upload-tire-list";
     }
 }
 

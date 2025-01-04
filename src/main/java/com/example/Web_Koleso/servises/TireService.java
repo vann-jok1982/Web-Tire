@@ -48,6 +48,7 @@ public class TireService {
         List<WarehouseTire> warehouseTires = warehouseTireRepository.findAll();
         List<TireWarehouseDTO> tireWarehouseDTOs = new ArrayList<>();
         for (WarehouseTire warehouseTire : warehouseTires) {
+            //изменил equals на contains
             if (warehouseTire.getTire().getName().contains(name)) {
                 TireWarehouseDTO dto = new TireWarehouseDTO();
                 dto.setTireId(warehouseTire.getTire().getId());
