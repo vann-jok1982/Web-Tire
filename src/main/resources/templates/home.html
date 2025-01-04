@@ -62,8 +62,8 @@
     <form action="/submit-article" method="POST">
         <input type="text" name="article" placeholder="Артикул">
 <!--    <input type="text" name="article" placeholder="Артикул" required>-->
-        <input type="submit" value="Отправить артикул"> <br>
-        <div class="forms-container" th:if="${error}" th:text="${error}" style="color: red;"></div>
+        <input type="submit" value="Отправить артикул">
+        <div th:if="${error}" th:text="${error}" style="color: red;"></div>
         </form>
 
 
@@ -82,7 +82,8 @@
 </div>
 
 <a href="/tire" style="margin-right: 20px;">Перейти на страницу шин</a>
-<a href="/ware_house">Перейти на страницу складов</a>
+<a href="/ware_house" style="margin-right: 20px;">Перейти на страницу складов</a>
+<a href="/autorization" style="margin-right: 20px;">Перейти на панель администратора</a>
 
 </body>
 </html>
