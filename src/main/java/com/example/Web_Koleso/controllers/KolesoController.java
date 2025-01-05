@@ -40,6 +40,14 @@ public class KolesoController {
 
     @PostMapping("/submit-article")
     public String handleArticleRequest(@RequestParam("article") String article, Model model) {
+        //Логика обработки введеных значений в поле.
+        if(article.isEmpty()){
+            model.addAttribute("errorArticle", article = "Поле не может быть пустым");
+            return "home";
+        } if(article.length()>10){
+            model.addAttribute("errorArticle", article="Поле не может быть более 10ти символов");
+            return "home";
+        }
         // Добавьте логику для обработки артикула
         model.addAttribute("article", article);
 
@@ -54,7 +62,14 @@ public class KolesoController {
     @PostMapping("/submit-name")
     public String handleNameRequest(@RequestParam("name") String name, Model model) {
         model.addAttribute("name", name);
-
+        //Логика обработки введеных значений в поле.
+        if(name.isEmpty()){
+            model.addAttribute("errorName", name = "Поле не может быть пустым");
+            return "home";
+        } if(name.length()>12){
+            model.addAttribute("errorName", name="Поле не может быть более 12ти символов");
+            return "home";
+        }
         // Добавьте логику для обработки наименования
         List<TireWarehouseDTO> tireWarehouseDTOList = tireService.findAllTiresWithName(name);
         model.addAttribute("tireWarehouseDTOList", tireWarehouseDTOList);
