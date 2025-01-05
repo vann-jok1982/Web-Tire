@@ -3,12 +3,12 @@ spring:
     name: Web-Koleso
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/tire
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: postgres
+    password: admin
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
       properties:
         hibernate:
           dialect: org.hibernate.dialect.PostgreSQLDialect
