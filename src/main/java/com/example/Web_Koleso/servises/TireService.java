@@ -39,6 +39,7 @@ public class TireService {
                 dto.setProvidedTotal(warehouseTire.getProvidedTotal());
                 dto.setDeficitTotal(warehouseTire.getDeficitTotal());
                 dto.setSurplusTotal(warehouseTire.getSurplusTotal());
+                dto.setUploadDate(warehouseTire.getTire().getUploadDate());
                 tireWarehouseDTOs.add(dto);
             }
         }
@@ -58,6 +59,7 @@ public class TireService {
                 dto.setProvidedTotal(warehouseTire.getProvidedTotal());
                 dto.setDeficitTotal(warehouseTire.getDeficitTotal());
                 dto.setSurplusTotal(warehouseTire.getSurplusTotal());
+                dto.setUploadDate(warehouseTire.getTire().getUploadDate());
                 tireWarehouseDTOs.add(dto);
             }
         }
