@@ -23,21 +23,6 @@ public class ExcelController {
         this.kolesoParser = kolesoParser;
     }
 
-//    @SneakyThrows
-//    @PostMapping("/upload")
-//    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) {
-//        int available = file.getInputStream().available();
-//
-//        if (file.isEmpty()) {
-//            return ResponseEntity.badRequest().body("Файл не должен быть пустым");
-//        }
-////        // Парсинг файла (если необходимо, можно добавить логику для обработки разных типов файлов)
-//        kolesoParser.parseExcelFile(file.getInputStream());
-//        System.out.println(available);
-//
-//        return ResponseEntity.ok("Проверка прошла успешно");
-//    }
-
 @PostMapping("/upload")
 public ModelAndView upload(@RequestParam("file") MultipartFile file) throws IOException {
     ModelAndView modelAndView = new ModelAndView();
